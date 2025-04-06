@@ -24,10 +24,10 @@ const AlertBanner = ({ title, message, type = 'info' }: AlertBannerProps) => {
   };
 
   return (
-    <div className={`p-4 mb-4 ${getAlertClasses()}`}>
-      <div className="flex items-start">
-        <div className="flex-shrink-0 mr-3">
-          <AlertTriangle className="h-6 w-6 text-gc-dark-gray" />
+    <div className={`p-3 sm:p-4 mb-4 ${getAlertClasses()}`}>
+      <div className="flex flex-col sm:flex-row sm:items-start">
+        <div className="flex-shrink-0 mb-2 sm:mb-0 sm:mr-3">
+          <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-gc-dark-gray" />
         </div>
         <div>
           <h3 className="font-bold text-gc-dark-gray">{title}</h3>

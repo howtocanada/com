@@ -78,7 +78,7 @@
 
 @layer components {
   .gc-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
   
   .gc-btn {
@@ -94,7 +94,7 @@
   }
   
   .gc-breadcrumb {
-    @apply text-sm text-gc-dark-gray flex items-center space-x-1;
+    @apply text-xs sm:text-sm text-gc-dark-gray flex items-center flex-wrap space-x-1;
   }
   
   .gc-footer-link {
@@ -106,15 +106,15 @@
   }
   
   .gc-alert {
-    @apply bg-gc-yellow border-l-4 border-gc-red p-4 my-4;
+    @apply bg-gc-yellow border-l-4 border-gc-red p-3 sm:p-4 my-3 sm:my-4;
   }
   
   .gc-card {
-    @apply bg-white border border-gray-300 p-4 shadow-sm;
+    @apply bg-white border border-gray-300 p-3 sm:p-4 shadow-sm;
   }
   
   .gc-banner {
-    @apply bg-gc-blue text-white py-8;
+    @apply bg-gc-blue text-white py-6 sm:py-8;
   }
   
   .gc-search {
@@ -128,4 +128,34 @@
   .gc-skip-link {
     @apply sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:text-gc-blue focus:p-4;
   }
+  
+  /* Responsive grid adjustments */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+  
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6;
+  }
+  
+  /* Mobile-friendly spacing */
+  .mobile-py {
+    @apply py-4 sm:py-6 md:py-8;
+  }
+  
+  .mobile-px {
+    @apply px-3 sm:px-4 md:px-6;
+  }
 }
+
+/* Responsive image handling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-first approach for buttons */
+button, .gc-btn, .gc-btn-primary {
+  @apply py-2 px-3 sm:py-2 sm:px-4 text-sm sm:text-base;
+}
+

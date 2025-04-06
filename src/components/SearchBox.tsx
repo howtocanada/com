@@ -20,23 +20,25 @@ const SearchBox = ({ className, placeholder = "Search Canada.ca" }: { className?
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`gc-search ${className || ''}`}>
-      <input
-        type="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder={placeholder}
-        className="gc-search-input"
-        aria-label="Search"
-      />
-      <button 
-        type="submit" 
-        className="absolute right-3 top-1/2 -translate-y-1/2" 
-        aria-label="Submit search"
-      >
-        <Search className="h-4 w-4 text-gc-dark-gray" />
-      </button>
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gc-dark-gray" aria-hidden="true" />
+    <form onSubmit={handleSubmit} className={`gc-search w-full ${className || ''}`}>
+      <div className="relative">
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={placeholder}
+          className="gc-search-input w-full text-sm sm:text-base py-2"
+          aria-label="Search"
+        />
+        <button 
+          type="submit" 
+          className="absolute right-3 top-1/2 -translate-y-1/2" 
+          aria-label="Submit search"
+        >
+          <Search className="h-4 w-4 text-gc-dark-gray" />
+        </button>
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gc-dark-gray" aria-hidden="true" />
+      </div>
     </form>
   );
 };
