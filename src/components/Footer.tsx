@@ -1,4 +1,7 @@
 
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <footer className="bg-gc-footer border-t border-gray-300 mt-12">
@@ -30,12 +33,27 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div className="md:col-span-2">
-            <div className="flex items-center justify-center md:justify-end space-x-4">
+          <div>
+            <h3 className="text-gc-dark-gray text-lg font-bold mb-4">Government services</h3>
+            <ul className="space-y-2">
+              <li><Link to="/application-status" className="gc-footer-link text-sm">Check application status</Link></li>
+              <li><a className="gc-footer-link text-sm" href="#">Find a job</a></li>
+              <li><a className="gc-footer-link text-sm" href="#">Get a passport</a></li>
+              <li><a className="gc-footer-link text-sm" href="#">Income taxes</a></li>
+              <li><a className="gc-footer-link text-sm" href="#">Immigration and citizenship</a></li>
+              <li><a className="gc-footer-link text-sm" href="#">Business and industry</a></li>
+              <li><a className="gc-footer-link text-sm" href="#">Benefits</a></li>
+              <li><a className="gc-footer-link text-sm" href="#">Health</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-gc-dark-gray text-lg font-bold mb-4">Government of Canada</h3>
+            <div className="flex items-center justify-center md:justify-start">
               <img 
                 src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/wmms-blk.svg" 
                 alt="Symbol of the Government of Canada" 
-                className="h-10" 
+                className="h-12" 
               />
             </div>
           </div>
@@ -53,7 +71,7 @@ const Footer = () => {
               <li><a href="#" className="text-white hover:underline text-sm">Privacy</a></li>
             </ul>
             <div className="text-sm mt-2 md:mt-0 md:text-right">
-              © His Majesty the King in Right of Canada, 2023
+              © His Majesty the King in Right of Canada, {new Date().getFullYear()}
             </div>
           </div>
         </div>

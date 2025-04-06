@@ -3,12 +3,15 @@ import { useState } from 'react';
 import { Search, Menu, X } from 'lucide-react';
 import LanguageToggle from './LanguageToggle';
 import { Link } from 'react-router-dom';
+import SearchBox from './SearchBox';
+import SkipLinks from './SkipLinks';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header>
+      <SkipLinks />
       <div className="bg-gc-red py-2">
         <div className="gc-container flex justify-between items-center">
           <div className="flex items-center">
@@ -22,13 +25,8 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-4">
             <LanguageToggle />
-            <div className="relative hidden md:block">
-              <input
-                type="search"
-                placeholder="Search Canada.ca"
-                className="pl-10 pr-2 py-1 text-sm border border-gray-300 rounded w-48"
-              />
-              <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+            <div className="hidden md:block">
+              <SearchBox className="w-48" />
             </div>
           </div>
         </div>
@@ -51,12 +49,15 @@ const Header = () => {
             <button 
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-expanded={isMenuOpen}
+              aria-controls="main-menu"
+              aria-label="Main menu"
             >
               {isMenuOpen ? <X /> : <Menu />}
             </button>
             
             <nav className="hidden md:block">
-              <ul className="flex space-x-6">
+              <ul className="flex space-x-6" id="main-menu">
                 <li><Link to="/" className="gc-nav-link">Jobs</Link></li>
                 <li><Link to="/" className="gc-nav-link">Immigration</Link></li>
                 <li><Link to="/" className="gc-nav-link">Travel</Link></li>
@@ -76,7 +77,7 @@ const Header = () => {
         <div className="md:hidden bg-white border-b">
           <div className="gc-container py-2">
             <nav>
-              <ul className="space-y-2">
+              <ul className="space-y-2" id="mobile-menu">
                 <li><Link to="/" className="gc-nav-link block">Jobs</Link></li>
                 <li><Link to="/" className="gc-nav-link block">Immigration</Link></li>
                 <li><Link to="/" className="gc-nav-link block">Travel</Link></li>
@@ -90,14 +91,7 @@ const Header = () => {
             </nav>
             
             <div className="mt-4">
-              <div className="relative">
-                <input
-                  type="search"
-                  placeholder="Search Canada.ca"
-                  className="pl-10 pr-2 py-1 text-sm border border-gray-300 rounded w-full"
-                />
-                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
-              </div>
+              <SearchBox />
             </div>
           </div>
         </div>

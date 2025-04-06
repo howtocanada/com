@@ -5,13 +5,14 @@ import ApplicationForm from "@/components/ApplicationForm";
 import InfoSection from "@/components/InfoSection";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import AlertBanner from "@/components/AlertBanner";
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow" id="main-content">
         <div className="bg-gc-gray py-3">
           <div className="gc-container">
             <nav aria-label="breadcrumb" className="gc-breadcrumb">
@@ -81,7 +82,7 @@ const Index = () => {
             </div>
             
             <div className="lg:col-span-1">
-              <div className="bg-white border border-gray-300 p-4 mb-4">
+              <div className="gc-card mb-4">
                 <h2 className="text-lg font-bold mb-3">Related links</h2>
                 <ul className="space-y-3">
                   <li>
@@ -102,11 +103,16 @@ const Index = () => {
                 </ul>
               </div>
               
-              <div className="bg-gc-yellow p-4 border-l-4 border-gc-red">
-                <h3 className="font-bold mb-2">COVID-19: Impact on processing times</h3>
-                <p className="mb-3">We're still processing applications, but processing times are affected by COVID-19.</p>
-                <a href="#" className="gc-link">Read more about how COVID-19 affects immigration</a>
-              </div>
+              <AlertBanner
+                type="warning"
+                title="COVID-19: Impact on processing times"
+                message={
+                  <div>
+                    <p className="mb-3">We're still processing applications, but processing times are affected by COVID-19.</p>
+                    <a href="#" className="gc-link">Read more about how COVID-19 affects immigration</a>
+                  </div>
+                }
+              />
               
               <div className="mt-6 p-4 bg-white border border-gray-300">
                 <h3 className="font-bold mb-3">Help centre</h3>

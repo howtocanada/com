@@ -2,15 +2,34 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import { Search, AlertTriangle } from "lucide-react";
 import InfoSection from "@/components/InfoSection";
+import AlertBanner from "@/components/AlertBanner";
+import FeaturedServices from "@/components/FeaturedServices";
+import NewsSection from "@/components/NewsSection";
+import SearchBox from "@/components/SearchBox";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow" id="main-content">
+        {/* Alert Banner */}
+        <div className="gc-container py-4">
+          <AlertBanner
+            type="warning" 
+            title="COVID-19 updates"
+            message={
+              <div>
+                <p>Get updates on COVID-19 vaccines, variants, and safety measures.</p>
+                <a href="#" className="gc-link block mt-2">Latest coronavirus updates</a>
+              </div>
+            }
+          />
+        </div>
+        
         {/* Hero Section */}
         <div className="bg-gc-blue py-8 text-white">
           <div className="gc-container">
@@ -30,14 +49,7 @@ const HomePage = () => {
               <div className="relative hidden md:block">
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <h2 className="text-gc-blue text-xl font-bold mb-4">Search Canada.ca</h2>
-                  <div className="relative">
-                    <input
-                      type="search"
-                      placeholder="What are you looking for?"
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded"
-                    />
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                  </div>
+                  <SearchBox placeholder="What are you looking for?" />
                   <div className="mt-4 text-gc-blue">
                     <a href="#" className="text-gc-link text-sm block mb-2 hover:underline">Need help finding something?</a>
                     <a href="#" className="text-gc-link text-sm block hover:underline">Department and agency directory</a>
@@ -59,7 +71,10 @@ const HomePage = () => {
                 { title: "Apply for Canadian citizenship", link: "#" },
                 { title: "Get a passport", link: "#" },
                 { title: "Find a job", link: "#" },
+                { title: "Check application status", link: "/application-status" },
                 { title: "Get weather forecasts", link: "#" },
+                { title: "Apply for student loans", link: "#" },
+                { title: "Get your tax refund", link: "#" },
               ].map((service, index) => (
                 <a 
                   key={index} 
@@ -73,70 +88,60 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Focus Areas Section */}
+        {/* Featured Services */}
         <div className="bg-gc-gray py-8">
+          <div className="gc-container">
+            <FeaturedServices />
+          </div>
+        </div>
+        
+        {/* Focus Areas Section */}
+        <div className="bg-white py-8">
           <div className="gc-container">
             <h2 className="text-2xl font-bold mb-6">Focus on</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-4 shadow-sm">
+              <div className="gc-card">
                 <h3 className="text-xl font-bold mb-3">Coronavirus disease (COVID-19)</h3>
                 <ul className="space-y-3">
-                  <li>
-                    <a href="#" className="gc-link">Vaccines</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Travel restrictions and exemptions</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Financial support</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Prevention and risks</a>
-                  </li>
+                  <li><a href="#" className="gc-link">Vaccines</a></li>
+                  <li><a href="#" className="gc-link">Travel restrictions and exemptions</a></li>
+                  <li><a href="#" className="gc-link">Financial support</a></li>
+                  <li><a href="#" className="gc-link">Prevention and risks</a></li>
                 </ul>
               </div>
-              <div className="bg-white p-4 shadow-sm">
+              <div className="gc-card">
                 <h3 className="text-xl font-bold mb-3">Climate action</h3>
                 <ul className="space-y-3">
-                  <li>
-                    <a href="#" className="gc-link">Clean energy</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Climate plan</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Natural resources in Canada</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Climate change impacts</a>
-                  </li>
+                  <li><a href="#" className="gc-link">Clean energy</a></li>
+                  <li><a href="#" className="gc-link">Climate plan</a></li>
+                  <li><a href="#" className="gc-link">Natural resources in Canada</a></li>
+                  <li><a href="#" className="gc-link">Climate change impacts</a></li>
                 </ul>
               </div>
-              <div className="bg-white p-4 shadow-sm">
+              <div className="gc-card">
                 <h3 className="text-xl font-bold mb-3">Housing</h3>
                 <ul className="space-y-3">
-                  <li>
-                    <a href="#" className="gc-link">First-Time Home Buyer Incentive</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Housing benefits</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Mortgage insurance</a>
-                  </li>
-                  <li>
-                    <a href="#" className="gc-link">Financial assistance for renters</a>
-                  </li>
+                  <li><a href="#" className="gc-link">First-Time Home Buyer Incentive</a></li>
+                  <li><a href="#" className="gc-link">Housing benefits</a></li>
+                  <li><a href="#" className="gc-link">Mortgage insurance</a></li>
+                  <li><a href="#" className="gc-link">Financial assistance for renters</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         
+        {/* News Section */}
+        <div className="bg-gc-gray py-8">
+          <div className="gc-container">
+            <NewsSection />
+          </div>
+        </div>
+        
         {/* Government Section */}
         <div className="py-8 bg-white">
           <div className="gc-container">
-            <h2 className="text-2xl font-bold mb-6">Government</h2>
+            <h2 className="text-2xl font-bold mb-6" id="about-government">Government</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div>
                 <h3 className="text-xl font-bold mb-3">Contact us</h3>

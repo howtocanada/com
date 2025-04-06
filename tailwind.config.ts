@@ -64,6 +64,13 @@ export default {
 				'gc-footer': '#F8F8F8',
 				'gc-link': '#284162',
 				'gc-visited': '#7834BC',
+				'gc-focus': '#FF9500',
+				'gc-active': '#FF9500',
+				'gc-disabled': '#CCCCCC',
+				'gc-error': '#D3080C',
+				'gc-warning': '#EE7100',
+				'gc-success': '#2E8540',
+				'gc-info': '#269ABC',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
