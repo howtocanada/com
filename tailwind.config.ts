@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				// Government of Canada colors
+				'gc-red': '#E1251B',
+				'gc-blue': '#26374A',
+				'gc-light-blue': '#335075',
+				'gc-dark-blue': '#243850',
+				'gc-yellow': '#FFD700',
+				'gc-gray': '#EAEBED',
+				'gc-dark-gray': '#333333',
+				'gc-footer': '#F8F8F8',
+				'gc-link': '#284162',
+				'gc-visited': '#7834BC',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -89,6 +91,10 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			fontFamily: {
+				'lato': ['Lato', 'sans-serif'],
+				'noto': ['"Noto Sans"', 'sans-serif'],
 			}
 		}
 	},
