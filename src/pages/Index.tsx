@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ApplicationForm from "@/components/ApplicationForm";
 import InfoSection from "@/components/InfoSection";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
 const Index = () => {
@@ -14,20 +14,25 @@ const Index = () => {
       <main className="flex-grow">
         <div className="bg-gc-gray py-3">
           <div className="gc-container">
-            <Breadcrumb separator={<ChevronRight className="h-4 w-4" />}>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="#">Immigration and citizenship</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="#">My application</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="#" isCurrentPage>Check application status</BreadcrumbLink>
-              </BreadcrumbItem>
-            </Breadcrumb>
+            <nav aria-label="breadcrumb" className="gc-breadcrumb">
+              <ol className="flex flex-wrap items-center">
+                <li className="inline-flex items-center">
+                  <Link to="/" className="transition-colors hover:text-foreground">Home</Link>
+                </li>
+                <li className="inline-flex items-center">
+                  <span className="mx-2" aria-hidden="true"><ChevronRight className="h-4 w-4" /></span>
+                  <a href="#" className="transition-colors hover:text-foreground">Immigration and citizenship</a>
+                </li>
+                <li className="inline-flex items-center">
+                  <span className="mx-2" aria-hidden="true"><ChevronRight className="h-4 w-4" /></span>
+                  <a href="#" className="transition-colors hover:text-foreground">My application</a>
+                </li>
+                <li className="inline-flex items-center">
+                  <span className="mx-2" aria-hidden="true"><ChevronRight className="h-4 w-4" /></span>
+                  <span aria-current="page" className="font-normal text-foreground">Check application status</span>
+                </li>
+              </ol>
+            </nav>
           </div>
         </div>
         
